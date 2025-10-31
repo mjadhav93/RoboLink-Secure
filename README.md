@@ -21,17 +21,6 @@ The design ensures **confidentiality, integrity, and authentication** using WebS
 
 ---
 
-### 📁 Project Structure
-esp32-ws-robot/
-├── certs/ # contains self-signed TLS certificates
-│ ├── server.crt
-│ └── server.key
-├── mock_robot.py # simulated ESP32 robot node
-├── operator.py # AI controller / operator interface
-├── server.py # secure WebSocket server
-└── README.md
-
-
 
 ### 🚀 How to Run Locally
 
