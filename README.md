@@ -33,20 +33,19 @@ The design ensures **confidentiality, integrity, and authentication** using WebS
 
 
 2. **Start the secure server**
-```bash
-export WS_SHARED_SECRET=supersecret.
-python server.py
-# Expected output: 🔒 WSS server on wss://localhost:8765
- ```
+   ```bash
+   export WS_SHARED_SECRET=supersecret.
+   python server.py
+   # Expected output: 🔒 WSS server on wss://localhost:8765
+   ```
 
 4. **Start the simulated robot**
-```bash
-source .venv/bin/activate
-export WS_SHARED_SECRET=supersecret
-python mock_robot.py
-# Expected:  robot authenticated + telemetry logs
-
- ```
+   ```bash
+   source .venv/bin/activate
+   export WS_SHARED_SECRET=supersecret
+   python mock_robot.py
+   # Expected:  robot authenticated + telemetry logs
+   ```
    
 4. **Start the operator (AI controller)**
    ```bash
