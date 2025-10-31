@@ -33,9 +33,11 @@ The design ensures **confidentiality, integrity, and authentication** using WebS
 
 
 2. **Start the secure server**
-   -- export WS_SHARED_SECRET=supersecret.
-   -- python server.py
-   -- Expected output: 🔒 WSS server on wss://localhost:8765
+  ```bash
+export WS_SHARED_SECRET=supersecret.
+python server.py
+Expected output: 🔒 WSS server on wss://localhost:8765
+
 
 4. **Start the simulated robot**
    -- source .venv/bin/activate
