@@ -22,3 +22,58 @@ The design ensures **confidentiality, integrity, and authentication** using WebS
 ---
 
 ### 📁 Project Structure
+esp32-ws-robot/
+├── certs/ # contains self-signed TLS certificates
+│ ├── server.crt
+│ └── server.key
+├── mock_robot.py # simulated ESP32 robot node
+├── operator.py # AI controller / operator interface
+├── server.py # secure WebSocket server
+└── README.md
+
+
+
+### 🚀 How to Run Locally
+
+1. **Setup environment**
+   ```bash
+   cd esp32-ws-robot
+   python3 -m venv .venv
+   source .venv/bin/activate   # (Windows: .venv\Scripts\activate)
+   pip install websockets==12.0
+
+
+2. **Start the secure server**
+export WS_SHARED_SECRET=supersecret
+python server.py
+# Expected output: 🔒 WSS server on wss://localhost:8765
+
+3. **Start the simulated robot**
+source .venv/bin/activate
+export WS_SHARED_SECRET=supersecret
+python mock_robot.py
+# Expected: ✅ robot authenticated + telemetry logs
+
+4. **Start the operator (AI controller)**
+source .venv/bin/activate
+export WS_SHARED_SECRET=supersecret
+python operator.py
+
+Type chat hello robot
+Type drive 0.2 0.1
+Observe RTT metrics and robot responses.
+
+**Results**
+
+Latency: ~2–3 ms RTT on local network
+Telemetry: 10 Hz (~1 kB/s bandwidth)
+Security: TLS encryption + HMAC auth + timestamp freshness
+
+
+**Next Steps**
+
+1. Implement the same logic in ESP-IDF C using:
+2. esp_websocket_client for TLS WebSockets
+3. mbedTLS for HMAC-SHA256
+4. Lightweight JSON formatting via snprintf
+5. Test on actual ESP32 hardware with the same WSS server.
