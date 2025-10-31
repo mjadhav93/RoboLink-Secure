@@ -33,24 +33,24 @@ The design ensures **confidentiality, integrity, and authentication** using WebS
 
 
 2. **Start the secure server**
-export WS_SHARED_SECRET=supersecret
-python server.py
-# Expected output: 🔒 WSS server on wss://localhost:8765
+   -- export WS_SHARED_SECRET=supersecret.
+   -- python server.py
+   -- Expected output: 🔒 WSS server on wss://localhost:8765
 
-3. **Start the simulated robot**
-source .venv/bin/activate
-export WS_SHARED_SECRET=supersecret
-python mock_robot.py
-# Expected: ✅ robot authenticated + telemetry logs
+4. **Start the simulated robot**
+   -- source .venv/bin/activate
+   -- export WS_SHARED_SECRET=supersecret
+   -- python mock_robot.py
+   -- Expected: ✅ robot authenticated + telemetry logs
 
 4. **Start the operator (AI controller)**
-source .venv/bin/activate
-export WS_SHARED_SECRET=supersecret
-python operator.py
+   -- source .venv/bin/activate
+   -- export WS_SHARED_SECRET=supersecret
+   -- python operator.py
 
-Type chat hello robot
-Type drive 0.2 0.1
-Observe RTT metrics and robot responses.
+   Type chat hello robot
+   Type drive 0.2 0.1
+   Observe RTT metrics and robot responses.
 
 **Results**
 
